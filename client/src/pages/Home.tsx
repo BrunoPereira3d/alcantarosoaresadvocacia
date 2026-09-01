@@ -67,6 +67,12 @@ const intersections = [
   "Relações de trabalho",
 ];
 
+const cintiaCredentials = [
+  "Inscrição ativa na OAB/SP",
+  "Pós-graduação em Direito do Trabalho",
+  "Compliance Trabalhista e gestão de pessoas",
+];
+
 const whatsappMessage = encodeURIComponent(
   "Olá! Gostaria de iniciar uma conversa com a Alcântaro Soares Advocacia.",
 );
@@ -274,16 +280,19 @@ export default function Home() {
 
         <section className="founder" id="fundadora" aria-labelledby="founder-title">
           <div className="page-shell founder__inner">
-            <div className="founder__card" data-reveal>
+            <div className="founder__card" data-reveal="media">
               <div className="founder__portrait"><img src={assets.portrait} alt="Retrato profissional de Cintia Alves Soares" /></div>
               <div className="founder__card-meta"><img src={assets.mark} alt="" /><span>Alcântaro Soares</span></div>
             </div>
-            <div className="founder__copy" data-reveal>
-              <div className="section-bar"><span>05 · Fundadora</span></div>
-              <h2 id="founder-title">Cintia Alves Soares.</h2>
-              <p className="founder__role">Fundadora e CEO</p>
-              <p>À frente de uma atuação jurídica que se organiza com parceiros e outras especialidades conforme o contexto de cada projeto.</p>
-              <a className="text-link" href="https://www.linkedin.com/in/cintia-soares-581898a3/" target="_blank" rel="noreferrer">Perfil profissional <ArrowUpRight size={17} /></a>
+            <div className="founder__copy">
+              <div className="section-bar" data-reveal style={{ transitionDelay: "20ms" }}><span>05 · Fundadora</span></div>
+              <h2 id="founder-title" data-reveal style={{ transitionDelay: "75ms" }}>Cintia Alves Soares.</h2>
+              <p className="founder__role" data-reveal style={{ transitionDelay: "125ms" }}>Fundadora</p>
+              <p className="founder__summary" data-reveal style={{ transitionDelay: "165ms" }}>Advogada com inscrição ativa na OAB/SP e pós-graduação em Direito do Trabalho. Sua trajetória reúne atuação trabalhista, gestão de pessoas e compliance com foco na prevenção de riscos e na estruturação de práticas internas.</p>
+              <ul className="founder__credentials" aria-label="Credenciais profissionais" data-reveal style={{ transitionDelay: "215ms" }}>
+                {cintiaCredentials.map((credential) => <li key={credential}>{credential}</li>)}
+              </ul>
+              <a className="text-link" data-reveal style={{ transitionDelay: "265ms" }} href="https://www.linkedin.com/in/cintia-soares-581898a3/" target="_blank" rel="noreferrer">Perfil profissional <ArrowUpRight size={17} /></a>
             </div>
           </div>
         </section>

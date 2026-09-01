@@ -27,4 +27,18 @@
 - [x] Documentar a nova direção de design e obter validação antes de alterar a página.
 - [x] Aplicar a revisão visual e de conteúdo orientada pela apresentação aprovada.
 - [x] Validar a nova versão em desktop e mobile.
-- [ ] Atualizar a cópia de continuidade da proposta técnica no GitHub.
+- [x] Atualizar a cópia de continuidade da proposta técnica no GitHub.
+- [x] Remover todas as menções a “CEO” da página.
+- [x] Refinar hovers nos blocos de serviços e nos painéis em carvão.
+- [x] Validar a atualização de linguagem e interação em desktop e mobile.
+- [x] Salvar um checkpoint da revisão de linguagem e interatividade.
+- [x] Extrair do currículo somente informações profissionais confirmadas para a apresentação de Cintia Alves Soares.
+- [x] Reescrever a apresentação de Cintia e exibir o retrato em sua proporção original.
+- [x] Aplicar animações suaves de surgimento aos textos e imagens durante a rolagem.
+- [x] Validar a nova apresentação e os movimentos em desktop e mobile.
+- [x] Salvar um checkpoint da revisão de perfil e animações.
+- [x] Preparar o código-fonte em estrutura navegável para o repositório da Alcântaro.
+- [x] Enviar arquivos estruturados e histórico de commits ao GitHub.
+- [x] Verificar a estrutura remota e atualizar a documentação de continuidade.
+- [x] Criar uma rotina controlada no repositório para extrair a cópia v5 em arquivos navegáveis.
+- [ ] Sincronizar a revisão atual do perfil e das animações na estrutura navegável do GitHub.
