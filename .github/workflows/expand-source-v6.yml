@@ -1,0 +1,32 @@
+name: Sincronizar código-fonte v6
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  expand-source-v6:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extrair código do backup v6
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/alcantaro-source-v6
+          unzip -q alcantaro-soares-advocacia-backup-2026-09-01-v6.zip -d /tmp/alcantaro-source-v6
+          rsync -a /tmp/alcantaro-source-v6/source/ ./
+          rm -f .github/workflows/expand-source-v6.yml
+
+      - name: Registrar revisão atual
+        run: |
+          git config user.name "BrunoPereira3d"
+          git config user.email "418982637+BrunoPereira3d@users.noreply.github.com"
+          git add --all
+          git diff --cached --quiet || git commit -m "Sincroniza revisão atual do código-fonte"
+          git push
