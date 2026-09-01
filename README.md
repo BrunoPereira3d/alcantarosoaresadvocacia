@@ -29,12 +29,8 @@ Para criar a versão de produção, execute `pnpm build`. A verificação de tip
 
 ## Ativos
 
-Em produção, as imagens são carregadas por URLs do armazenamento estático do projeto para evitar que arquivos pesados tornem o deploy mais lento. Para preservação independente, uma cópia do código e dos assets de origem é preparada no arquivo de backup entregue junto a este repositório.
+As imagens (logo, marca, retrato e imagem de compartilhamento) ficam em `client/public/assets/`, versionadas junto com o código. Não há mais dependência de armazenamento externo do Manus: o build gera um site 100% estático, sem chamadas a serviços de terceiros além dos links de contato (WhatsApp, redes sociais, Google Maps).
 
 ## Continuidade e backup
 
-Este repositório deve ser tratado como a cópia de continuidade do código-fonte. Antes de alterações relevantes, recomenda-se registrar um commit descritivo. Alterações de conteúdo devem manter a regra de não inserir dados sobre clientes, resultados, equipe, tempo de atuação ou credenciais que não tenham sido aprovados.
-
-## Teste de sincronização com Manus
-
-Linha adicionada via Claude Code em 2026-09-01 para testar se o conector do Manus consegue puxar alterações feitas neste repositório GitHub de volta para o projeto no Manus.
+Este repositório é a cópia de continuidade do código-fonte, sem vínculo com o Manus. Antes de alterações relevantes, recomenda-se registrar um commit descritivo. Alterações de conteúdo devem manter a regra de não inserir dados sobre clientes, resultados, equipe, tempo de atuação ou credenciais que não tenham sido aprovados.
