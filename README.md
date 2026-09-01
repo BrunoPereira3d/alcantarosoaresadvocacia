@@ -34,3 +34,7 @@ Em produção, as imagens são carregadas por URLs do armazenamento estático do
 ## Continuidade e backup
 
 Este repositório deve ser tratado como a cópia de continuidade do código-fonte. Antes de alterações relevantes, recomenda-se registrar um commit descritivo. Alterações de conteúdo devem manter a regra de não inserir dados sobre clientes, resultados, equipe, tempo de atuação ou credenciais que não tenham sido aprovados.
+
+## Teste de sincronização com Manus
+
+Linha adicionada via Claude Code em 2026-09-01 para testar se o conector do Manus consegue puxar alterações feitas neste repositório GitHub de volta para o projeto no Manus.
