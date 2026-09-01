@@ -1,0 +1,30 @@
+# Pendências de reconstrução
+
+- [x] Verificar informações públicas dos perfis oficiais e registrar somente dados confirmados.
+- [x] Preparar e hospedar os logotipos, retrato e imagens fornecidas como assets estáticos do projeto.
+- [x] Elaborar textos institucionais sem alegações, resultados ou informações não confirmadas.
+- [x] Implementar a página institucional responsiva, incluindo SEO e prévia de compartilhamento.
+- [x] Validar conteúdo, experiência visual e acessibilidade em desktop e mobile.
+- [x] Criar o repositório público `alcantarosoaresadvocacia` e verificar o envio do pacote completo de continuidade.
+- [x] Remover o trilho vertical que acompanha a numeração das seções.
+- [x] Adicionar botão flutuante de contato via WhatsApp com mensagem automática.
+- [x] Inserir endereço completo e link do Google Maps no rodapé.
+- [x] Validar a composição atualizada em desktop e dispositivos móveis.
+- [x] Atualizar a cópia de continuidade no repositório GitHub.
+- [x] Substituir os monogramas textuais “AS” pela imagem oficial da marca.
+- [x] Validar a leitura das logos substituídas em desktop e mobile.
+- [x] Registrar a revisão visual na cópia de continuidade do GitHub.
+- [x] Validar o fundo branco aplicado ao monograma da seção de contato.
+- [x] Salvar um checkpoint da revisão do monograma de contato.
+- [x] Conferir o manual de marca e registrar os princípios que orientam o redesign.
+- [x] Gerar e hospedar imagens editoriais para elevar a hero e seções de destaque.
+- [x] Reduzir a densidade textual e redesenhar a página com superfícies escuras premium.
+- [x] Aplicar animações elegantes nos elementos e no menu, com suporte a movimento reduzido.
+- [x] Transformar o acesso flutuante em um botão circular verde de WhatsApp.
+- [x] Validar o redesign em desktop e mobile.
+- [x] Atualizar a cópia de continuidade premium no GitHub.
+- [x] Analisar a apresentação de Compliance Trabalhista e LGPD como nova referência visual e narrativa.
+- [x] Documentar a nova direção de design e obter validação antes de alterar a página.
+- [x] Aplicar a revisão visual e de conteúdo orientada pela apresentação aprovada.
+- [x] Validar a nova versão em desktop e mobile.
+- [ ] Atualizar a cópia de continuidade da proposta técnica no GitHub.

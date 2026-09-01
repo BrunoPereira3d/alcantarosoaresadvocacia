@@ -1,0 +1,282 @@
+/* Design note — Proposta Técnica Alcântaro: fundo creme #F8F3E9 para informação, carvão #2A211D para síntese,
+   vinho #5F0620 para foco e dourado fosco para orientação. Módulos retangulares e sequência numérica lideram a leitura. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --color-background: var(--cream);
+  --color-foreground: var(--ink);
+  --color-primary: var(--wine);
+  --color-primary-foreground: #fff;
+  --color-secondary: var(--cream-deep);
+  --color-secondary-foreground: var(--ink);
+  --color-muted: var(--cream-deep);
+  --color-muted-foreground: var(--grey);
+  --color-accent: var(--gold);
+  --color-accent-foreground: var(--charcoal);
+  --color-border: var(--border);
+  --radius-sm: 0.2rem;
+  --radius-md: 0.34rem;
+  --radius-lg: 0.5rem;
+}
+
+:root {
+  --wine: #5f0620;
+  --wine-bright: #7a1a2e;
+  --wine-deep: #440414;
+  --gold: #bd8e51;
+  --gold-pale: #d8c08a;
+  --cream: #f8f3e9;
+  --cream-deep: #ece2d1;
+  --paper: #fffdf9;
+  --charcoal: #2a211d;
+  --ink: #35302c;
+  --grey: #6b6259;
+  --border: rgba(75, 65, 56, 0.15);
+  --green-wa: #25d366;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --background: var(--cream);
+  --foreground: var(--ink);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--charcoal); }
+body { margin: 0; overflow-x: hidden; background: var(--cream); color: var(--ink); font-family: "Manrope", Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+img { display: block; max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+.site-shell { overflow: clip; }
+.page-shell { width: min(100%, 84rem); margin: 0 auto; padding-right: clamp(1.35rem, 4.7vw, 4.7rem); padding-left: clamp(1.35rem, 4.7vw, 4.7rem); }
+
+/* Navigation — a quiet technical header, with one concise contact action. */
+.topbar { position: fixed; z-index: 50; top: 0; left: 0; width: 100%; color: #fff; transition: background 220ms var(--ease-out), border-color 220ms var(--ease-out), backdrop-filter 220ms var(--ease-out); }
+.topbar--scrolled { border-bottom: 1px solid rgba(216, 192, 138, 0.27); background: rgba(68, 4, 20, 0.93); backdrop-filter: blur(15px); }
+.topbar__inner { display: flex; height: 5.4rem; align-items: center; gap: 1.8rem; }
+.brand { width: clamp(9.7rem, 14vw, 12rem); flex: 0 0 auto; }
+.brand img { width: 100%; height: auto; }
+.desktop-nav { display: flex; align-items: center; gap: clamp(1.1rem, 2.3vw, 2.3rem); margin-left: auto; }
+.desktop-nav a, .nav-cta { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.desktop-nav a { position: relative; padding: 0.45rem 0; color: rgba(255, 255, 255, 0.78); transition: color 180ms var(--ease-out); }
+.desktop-nav a::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; content: ""; background: var(--gold-pale); transform: scaleX(0); transform-origin: left; transition: transform 180ms var(--ease-out); }
+.desktop-nav a:hover { color: #fff; }
+.desktop-nav a:hover::after { transform: scaleX(1); }
+.nav-cta { display: inline-flex; align-items: center; gap: 0.45rem; margin-left: 0.4rem; color: var(--gold-pale); transition: color 180ms var(--ease-out); }
+.nav-cta svg { transition: transform 180ms var(--ease-out); }
+.nav-cta:hover { color: #fff; }
+.nav-cta:hover svg { transform: translate(2px, -2px); }
+.menu-toggle, .mobile-nav { display: none; }
+
+/* Cover — taken from the visual grammar of the technical proposal: wine field, thin gold line and one atmospheric disc. */
+.cover { position: relative; overflow: hidden; min-height: 44rem; background: var(--wine); color: #fff; }
+.cover::before { position: absolute; inset: 0; content: ""; background: linear-gradient(115deg, rgba(54, 1, 15, 0.15), transparent 62%); }
+.cover__inner { position: relative; display: flex; min-height: 44rem; flex-direction: column; padding-top: 8.5rem; padding-bottom: 2rem; }
+.cover__disc { position: absolute; border-radius: 50%; background: var(--wine-bright); opacity: 0.62; pointer-events: none; }
+.cover__disc--one { top: -17rem; right: -12rem; width: 34rem; height: 34rem; }
+.cover__disc--two { right: 10%; bottom: -18rem; width: 31rem; height: 31rem; border: 1px solid rgba(216, 192, 138, 0.18); background: transparent; }
+.cover__corner { position: absolute; right: clamp(1.35rem, 7vw, 8rem); bottom: 6.7rem; width: min(25vw, 19rem); height: min(14vw, 11rem); border-right: 1px solid rgba(216, 192, 138, 0.63); border-bottom: 1px solid rgba(216, 192, 138, 0.63); }
+.cover__overline { color: var(--gold-pale); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+.cover__content { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.42fr); gap: clamp(3rem, 9vw, 10rem); align-items: end; flex: 1; padding-top: clamp(4rem, 9vw, 7rem); padding-bottom: clamp(3.4rem, 7vw, 5.5rem); }
+.section-bar { display: flex; align-items: center; gap: 0.7rem; color: var(--wine); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+.section-bar::before { display: block; width: 2px; height: 1.55rem; content: ""; background: var(--gold); }
+.section-bar--gold { color: var(--gold-pale); }
+.section-bar--gold::before { background: var(--gold-pale); }
+.cover h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; }
+.cover h1 { max-width: 48rem; margin: 1.35rem 0 1.65rem; font-size: clamp(3.5rem, 7.4vw, 7.4rem); font-weight: 600; letter-spacing: -0.063em; line-height: 0.86; }
+.cover h1 em, h2 em { color: var(--gold-pale); font-style: italic; font-weight: 500; }
+.cover__main > p { max-width: 32rem; margin: 0; color: rgba(255, 255, 255, 0.76); font-size: 0.9rem; line-height: 1.75; }
+.cover__panel { position: relative; padding: 1.5rem 1.45rem; background: rgba(42, 33, 29, 0.61); box-shadow: 0 1rem 2rem rgba(48, 0, 13, 0.16); }
+.cover__panel::after { position: absolute; inset: 0; border: 1px solid rgba(216, 192, 138, 0.25); content: ""; transform: translate(0.55rem, 0.55rem); pointer-events: none; }
+.cover__panel > span { color: var(--gold-pale); font-size: 0.59rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+.cover__panel > p { margin: 1rem 0 1.5rem; color: rgba(255, 255, 255, 0.75); font-size: 0.78rem; line-height: 1.7; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem; min-height: 3.25rem; padding: 0.75rem 1rem; font-size: 0.59rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+.button:active { transform: scale(0.97); }
+.button--sand { background: var(--gold-pale); color: var(--wine-deep); }
+.button--sand:hover { background: #fff5e4; box-shadow: 0 0.8rem 1.7rem rgba(30, 0, 9, 0.17); transform: translateY(-2px); }
+.button svg:last-child { transition: transform 180ms var(--ease-out); }
+.button:hover svg:last-child { transform: translate(2px, -2px); }
+.cover__footer { display: flex; align-items: center; gap: 1.2rem; padding-top: 1.25rem; border-top: 1px solid rgba(216, 192, 138, 0.35); color: rgba(255, 255, 255, 0.68); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.cover__footer i { width: 0.32rem; height: 0.32rem; border: 1px solid var(--gold-pale); transform: rotate(45deg); }
+
+/* White/cream information field — card modules are intentionally functional, not decorative. */
+.agenda { position: relative; background: var(--cream); }
+.agenda__inner, .method__inner { padding-top: clamp(5.4rem, 9vw, 8.7rem); padding-bottom: clamp(5.5rem, 9vw, 8.7rem); }
+.section-heading { max-width: 52rem; }
+.section-heading h2, .concept h2, .intersection h2, .founder h2, .contact h2 { margin: 1.1rem 0 0; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 600; letter-spacing: -0.058em; line-height: 0.92; }
+.section-heading h2 { color: var(--ink); }
+.section-heading h2 em, .founder h2 em { color: var(--wine); }
+.section-heading > p { max-width: 31rem; margin: 1.35rem 0 0; color: var(--grey); font-size: 0.84rem; line-height: 1.75; }
+.agenda__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: clamp(2.7rem, 5.4vw, 5rem); }
+.area-card { position: relative; display: flex; min-height: 18.7rem; flex-direction: column; padding: 1.35rem; box-shadow: 0 0.6rem 1.35rem rgba(63, 50, 39, 0.055); transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out); }
+.area-card:hover { box-shadow: 0 1rem 2rem rgba(63, 50, 39, 0.11); transform: translateY(-5px); }
+.area-card--wine { background: var(--wine); color: #fff; }
+.area-card--paper { border: 1px solid rgba(75, 65, 56, 0.08); background: var(--paper); color: var(--ink); }
+.area-card__top { display: flex; align-items: center; justify-content: space-between; color: var(--gold-pale); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.08em; }
+.area-card--paper .area-card__top { color: var(--wine); }
+.area-card h3 { display: grid; margin: auto 0 0; font-size: clamp(2rem, 2.75vw, 3rem); font-weight: 600; letter-spacing: -0.047em; line-height: 0.88; }
+.area-card--wine h3 span:last-child { color: var(--gold-pale); font-style: italic; }
+.area-card--paper h3 span:last-child { color: var(--wine); font-style: italic; }
+.area-card p { max-width: 16rem; margin: 0.9rem 0 0; color: rgba(255, 255, 255, 0.71); font-size: 0.74rem; line-height: 1.68; }
+.area-card--paper p { color: var(--grey); }
+.area-card__arrow { position: absolute; right: 1.2rem; bottom: 1.25rem; color: var(--gold-pale); transition: transform 180ms var(--ease-out); }
+.area-card--paper .area-card__arrow { color: var(--wine); }
+.area-card:hover .area-card__arrow { transform: translate(3px, 0); }
+
+/* Charcoal concept panel — the same role that dark slides play in the new reference deck. */
+.concept { background: var(--charcoal); color: #fff; }
+.concept__inner { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(17rem, 0.56fr); gap: clamp(3rem, 10vw, 10rem); align-items: center; padding-top: clamp(5.4rem, 9vw, 8.7rem); padding-bottom: clamp(5.4rem, 9vw, 8.7rem); }
+.concept h2 { max-width: 44rem; color: #fff; }
+.concept__copy > p:last-child { max-width: 30rem; margin: 1.5rem 0 0; color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.76; }
+.concept__panel { padding: 1.75rem 1.6rem; background: var(--wine); box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.22); }
+.concept__panel-label { display: block; margin-bottom: 1.3rem; color: var(--gold-pale); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+.concept__panel > div { padding: 0.85rem 0; border-top: 1px solid rgba(216, 192, 138, 0.32); }
+.concept__panel > div:last-child { border-bottom: 1px solid rgba(216, 192, 138, 0.32); }
+.concept__panel b { color: var(--gold-pale); font-size: 0.73rem; font-weight: 800; }
+.concept__panel p { margin: 0.32rem 0 0; color: rgba(255, 255, 255, 0.74); font-size: 0.72rem; line-height: 1.55; }
+
+/* The method follows the reference deck's sequential five-column composition. */
+.method { background: var(--cream-deep); }
+.section-heading--compact { max-width: 44rem; }
+.method__steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: clamp(2.8rem, 5vw, 4.8rem); overflow: hidden; box-shadow: 0 0.7rem 1.7rem rgba(63, 50, 39, 0.07); }
+.method-step { min-height: 15.4rem; padding: 1.2rem 1rem; border-right: 1px solid rgba(216, 192, 138, 0.34); background: var(--wine); color: #fff; transition: background 200ms var(--ease-out), transform 200ms var(--ease-out); }
+.method-step:nth-child(2), .method-step:nth-child(4) { background: var(--charcoal); }
+.method-step:last-child { border-right: 0; }
+.method-step:hover { position: relative; z-index: 1; background: var(--wine-bright); transform: translateY(-0.35rem); }
+.method-step > span { color: var(--gold-pale); font-family: "Cormorant Garamond", Georgia, serif; font-size: 2.45rem; font-weight: 600; line-height: 1; }
+.method-step h3 { margin: 1.8rem 0 0; color: #fff; font-size: 1.35rem; font-weight: 600; line-height: 0.95; }
+.method-step p { margin: 0.8rem 0 0; color: rgba(255, 255, 255, 0.7); font-size: 0.68rem; line-height: 1.6; }
+
+.intersection { background: var(--charcoal); color: #fff; }
+.intersection__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(17rem, 0.8fr); gap: clamp(3rem, 9vw, 9rem); align-items: end; padding-top: clamp(5.4rem, 9vw, 8.7rem); padding-bottom: clamp(5.4rem, 9vw, 8.7rem); }
+.intersection h2 { max-width: 42rem; color: #fff; }
+.intersection__intro > p { max-width: 28rem; margin: 1.4rem 0 0; color: rgba(255, 255, 255, 0.68); font-size: 0.84rem; line-height: 1.74; }
+.intersection__list { border-top: 1px solid rgba(216, 192, 138, 0.35); }
+.intersection__list > div { display: grid; grid-template-columns: 2.2rem 1fr auto; gap: 0.7rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(216, 192, 138, 0.27); transition: padding 190ms var(--ease-out), color 190ms var(--ease-out); }
+.intersection__list > div:hover { padding-right: 0.45rem; padding-left: 0.45rem; color: var(--gold-pale); }
+.intersection__list span { color: var(--gold-pale); font-size: 0.59rem; font-weight: 800; letter-spacing: 0.08em; }
+.intersection__list p { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.53rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1; }
+.intersection__list svg { color: var(--gold-pale); }
+
+/* Founder returns to a light modular card, like the team slide rather than a campaign portrait. */
+.founder { background: var(--cream); }
+.founder__inner { display: grid; grid-template-columns: minmax(15rem, 0.62fr) minmax(22rem, 1fr); gap: clamp(3rem, 10vw, 10rem); align-items: center; padding-top: clamp(5.4rem, 9vw, 8.7rem); padding-bottom: clamp(5.4rem, 9vw, 8.7rem); }
+.founder__card { max-width: 25rem; overflow: hidden; border: 1px solid rgba(75, 65, 56, 0.1); background: var(--paper); box-shadow: 0 0.9rem 2.1rem rgba(63, 50, 39, 0.08); }
+.founder__portrait { height: 19.6rem; overflow: hidden; background: var(--charcoal); }
+.founder__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; filter: saturate(0.83) contrast(1.05); transition: transform 600ms var(--ease-out); }
+.founder__card:hover .founder__portrait img { transform: scale(1.035); }
+.founder__card-meta { display: flex; align-items: center; gap: 0.7rem; padding: 1rem 1.15rem; }
+.founder__card-meta img { width: 1.65rem; height: 1.65rem; object-fit: contain; }
+.founder__card-meta span { color: var(--wine); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
+.founder h2 { color: var(--ink); }
+.founder__role { margin: 1.2rem 0 0; color: var(--wine); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.founder__copy > p:last-of-type { max-width: 31rem; margin: 1rem 0 0; color: var(--grey); font-size: 0.84rem; line-height: 1.76; }
+.text-link { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.9rem; color: var(--wine); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.text-link svg { transition: transform 180ms var(--ease-out); }
+.text-link:hover svg { transform: translate(2px, -2px); }
+
+.contact { position: relative; overflow: hidden; background: var(--wine); color: #fff; }
+.contact::after { position: absolute; top: 0; right: 7%; width: min(29vw, 22rem); height: 100%; border-right: 1px solid rgba(216, 192, 138, 0.32); border-left: 1px solid rgba(216, 192, 138, 0.18); content: ""; pointer-events: none; }
+.contact__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.4fr); gap: clamp(2rem, 8vw, 8rem); align-items: end; padding-top: clamp(5rem, 8vw, 7rem); padding-bottom: clamp(5rem, 8vw, 7rem); }
+.contact h2 { max-width: 45rem; color: #fff; }
+.contact__actions { display: flex; flex-direction: column; align-items: flex-start; gap: 1.15rem; }
+.contact__actions .button { min-width: 100%; }
+.contact__email { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--gold-pale); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.03em; overflow-wrap: anywhere; transition: color 180ms var(--ease-out); }
+.contact__email:hover { color: #fff; }
+
+/* Functional contact control — the only green object in the system. */
+.whatsapp-float { position: fixed; z-index: 60; right: clamp(1rem, 2vw, 2rem); bottom: clamp(1rem, 2vw, 2rem); display: grid; width: 3.55rem; height: 3.55rem; place-items: center; border: 1px solid rgba(255, 255, 255, 0.77); border-radius: 50%; background: var(--green-wa); color: #fff; box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.28); transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out); }
+.whatsapp-float::before { position: absolute; inset: -0.32rem; border: 1px solid rgba(37, 211, 102, 0.46); border-radius: inherit; content: ""; animation: pulse 2.6s ease-out infinite; }
+.whatsapp-float:hover { background: #1ebc5a; box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.36); transform: translateY(-3px); }
+.whatsapp-float:active { transform: scale(0.95); }
+
+.footer { background: var(--charcoal); color: #fff; }
+.footer__inner { padding-top: 2.8rem; padding-bottom: 1.35rem; }
+.footer__top { display: grid; grid-template-columns: minmax(10rem, 0.58fr) 1fr auto; gap: 2rem; align-items: center; padding-bottom: 1.9rem; }
+.footer__logo { width: min(13rem, 100%); }
+.footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem clamp(1rem, 2vw, 2rem); }
+.footer nav a { color: rgba(255, 255, 255, 0.63); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: color 180ms var(--ease-out); }
+.footer nav a:hover { color: var(--gold-pale); }
+.footer__socials { display: flex; gap: 0.45rem; }
+.footer__socials a { display: grid; width: 2.15rem; height: 2.15rem; place-items: center; border: 1px solid rgba(216, 192, 138, 0.34); color: var(--gold-pale); transition: color 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.footer__socials a:hover { background: var(--gold-pale); color: var(--charcoal); transform: translateY(-2px); }
+.footer__address { display: flex; align-items: flex-start; gap: 1.3rem; padding: 1.2rem 0; border-top: 1px solid rgba(216, 192, 138, 0.24); }
+.footer__address > span { padding-top: 0.2rem; color: var(--gold); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.footer__address a { display: inline-flex; align-items: center; gap: 0.55rem; color: rgba(255, 255, 255, 0.65); font-size: 0.66rem; font-weight: 600; line-height: 1.55; transition: color 180ms var(--ease-out); }
+.footer__address a svg { flex: 0 0 auto; color: var(--gold-pale); }
+.footer__address a svg:last-child { transition: transform 180ms var(--ease-out); }
+.footer__address a:hover { color: #fff; }
+.footer__address a:hover svg:last-child { transform: translate(2px, -2px); }
+.footer__lower { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid rgba(216, 192, 138, 0.24); color: rgba(255, 255, 255, 0.4); font-size: 0.53rem; font-weight: 700; letter-spacing: 0.07em; line-height: 1.6; text-transform: uppercase; }
+
+/* Animation stays quiet: bounded entry, tactile cards and a compact mobile menu. */
+.has-motion [data-reveal] { opacity: 0; transform: translateY(1.25rem); transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-out); }
+.has-motion [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+.cover-appear { animation: coverIn 720ms var(--ease-out) both; }
+.cover-appear--one { animation-delay: 100ms; }
+.cover-appear--two { animation-delay: 190ms; }
+.cover-appear--three { animation-delay: 310ms; }
+@keyframes coverIn { from { opacity: 0; transform: translateY(1.15rem); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 55%, 100% { opacity: 0; transform: scale(0.94); } 24% { opacity: 0.78; transform: scale(1.12); } }
+
+@media (max-width: 920px) {
+  .desktop-nav, .nav-cta { display: none; }
+  .menu-toggle { display: grid; margin-left: auto; padding: 0; border: 0; place-items: center; background: transparent; color: #fff; }
+  .mobile-nav { position: absolute; top: 5.4rem; right: 0; left: 0; display: grid; grid-template-rows: 0fr; overflow: hidden; background: rgba(68, 4, 20, 0.985); color: #fff; transition: grid-template-rows 280ms var(--ease-out); }
+  .mobile-nav--open { grid-template-rows: 1fr; border-top: 1px solid rgba(216, 192, 138, 0.28); box-shadow: 0 1rem 2rem rgba(36, 0, 9, 0.26); }
+  .mobile-nav__inner { display: grid; min-height: 0; padding-top: 1.2rem; padding-bottom: 1.4rem; }
+  .mobile-nav__caption { margin-bottom: 0.4rem; color: var(--gold-pale); font-size: 0.55rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+  .mobile-nav__inner > a:not(.mobile-nav__cta) { display: grid; grid-template-columns: 2.1rem 1fr auto; gap: 0.6rem; align-items: center; min-height: 3.95rem; border-bottom: 1px solid rgba(216, 192, 138, 0.2); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.62rem; font-weight: 600; }
+  .mobile-nav__inner > a:not(.mobile-nav__cta) span { color: var(--gold-pale); font-family: "Manrope", Arial, sans-serif; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.06em; }
+  .mobile-nav__cta { display: flex; align-items: center; justify-content: space-between; margin-top: 1.2rem; padding: 0.95rem 1rem; background: var(--gold-pale); color: var(--wine-deep); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cover__content, .concept__inner, .intersection__inner, .founder__inner, .contact__inner { grid-template-columns: 1fr; }
+  .cover__content { gap: 2.5rem; }
+  .cover__panel { max-width: 22rem; }
+  .agenda__cards { grid-template-columns: repeat(3, minmax(12rem, 1fr)); overflow-x: auto; padding-bottom: 0.4rem; }
+  .area-card { min-width: 14.5rem; }
+  .method__steps { grid-template-columns: repeat(5, minmax(11.5rem, 1fr)); overflow-x: auto; padding-bottom: 0.35rem; }
+  .method-step { min-height: 14rem; }
+  .founder__card { max-width: 24rem; }
+  .footer__top { grid-template-columns: 1fr auto; }
+  .footer nav { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; }
+}
+
+@media (max-width: 580px) {
+  .topbar__inner { height: 4.8rem; }
+  .mobile-nav { top: 4.8rem; }
+  .cover, .cover__inner { min-height: 41.5rem; }
+  .cover__inner { padding-top: 7.4rem; }
+  .cover__disc--one { top: -13rem; right: -13rem; width: 28rem; height: 28rem; }
+  .cover__disc--two { right: -10rem; bottom: -15rem; width: 25rem; height: 25rem; }
+  .cover__corner { right: 1rem; bottom: 5rem; width: 7rem; height: 6rem; }
+  .cover__content { padding-top: 3.5rem; padding-bottom: 2rem; }
+  .cover h1 { font-size: clamp(3rem, 14vw, 4.6rem); }
+  .cover__main > p { max-width: 19rem; font-size: 0.82rem; }
+  .cover__footer { flex-wrap: wrap; gap: 0.7rem 1rem; font-size: 0.5rem; }
+  .section-heading h2, .concept h2, .intersection h2, .founder h2, .contact h2 { font-size: clamp(2.7rem, 12.6vw, 4rem); }
+  .agenda__cards { margin-right: -1.35rem; padding-right: 1.35rem; }
+  .area-card { min-height: 17.3rem; }
+  .concept__inner, .intersection__inner, .founder__inner, .contact__inner { gap: 2.8rem; }
+  .concept__panel { max-width: 21rem; }
+  .method__steps { margin-right: -1.35rem; padding-right: 1.35rem; }
+  .intersection__list p { font-size: 1.35rem; }
+  .founder__portrait { height: 17.8rem; }
+  .contact::after { right: 1rem; width: 8rem; }
+  .contact__actions { max-width: 21rem; }
+  .footer__top { grid-template-columns: 1fr; }
+  .footer nav { grid-column: auto; grid-row: auto; justify-content: flex-start; }
+  .footer__socials { justify-self: start; }
+  .footer__address { flex-direction: column; gap: 0.5rem; }
+  .footer__address a { align-items: flex-start; }
+  .footer__lower { flex-direction: column; gap: 0.4rem; }
+  .whatsapp-float { width: 3.25rem; height: 3.25rem; }
+}
