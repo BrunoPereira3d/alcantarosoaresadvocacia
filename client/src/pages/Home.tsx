@@ -17,10 +17,9 @@ import {
 } from "lucide-react";
 
 const assets = {
-  logoOnDark: "/manus-storage/AS_LogoHorizontalFundoEscuroPNG_7f5c8077.png",
-  logoOnLight: "/manus-storage/AS_LogoHorizontalFundoClaroPNG_eba9e3cf.png",
-  mark: "/manus-storage/AS_LogoSignPNG_557597fa.webp",
-  portrait: "/manus-storage/cintia-professional-portrait_15018751.webp",
+  logoOnDark: "/assets/logo-horizontal-fundo-escuro.webp",
+  mark: "/assets/logo-sign.webp",
+  portrait: "/assets/cintia-portrait.webp",
 };
 
 const navigation = [
