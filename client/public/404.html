@@ -7,7 +7,17 @@
     <meta name="robots" content="noindex, follow" />
     <title>Página não encontrada — Alcântaro Soares Advocacia</title>
     <link rel="icon" type="image/webp" href="/assets/logo-sign.webp" />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-latin.woff2" crossorigin />
     <style>
+      /* A página 404 é estática e não carrega o CSS da aplicação, por isso declara
+         a própria @font-face para manter a tipografia institucional. */
+      @font-face {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 200 800;
+        font-display: swap;
+        src: url("/assets/fonts/manrope-latin.woff2") format("woff2-variations");
+      }
       :root {
         --wine: #5f0620;
         --cream: #f8f3e9;

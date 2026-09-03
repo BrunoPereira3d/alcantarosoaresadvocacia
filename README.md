@@ -25,6 +25,7 @@ Para criar a versão de produção, execute `pnpm build`. A verificação de tip
 | `client/public/robots.txt` e `client/public/sitemap.xml` | Arquivos básicos de indexação                                       |
 | `client/public/404.html`                                 | Página de erro estática; a Netlify a serve com HTTP 404 real        |
 | `netlify.toml`                                           | Build, cabeçalhos de segurança (HSTS, CSP, Referrer-Policy) e cache |
+| `client/public/assets/fonts/`                            | Arquivos de tipografia auto-hospedados                              |
 | `ideas.md`                                               | Direção de design e decisões de estilo                              |
 | `assets.md`                                              | Mapa de aplicação dos ativos oficiais                               |
 | `content_sources.md`                                     | Registro de fontes e limites editoriais                             |
@@ -33,7 +34,9 @@ Para criar a versão de produção, execute `pnpm build`. A verificação de tip
 
 As imagens (logo, marca, retrato e imagem de compartilhamento) ficam em `client/public/assets/`, versionadas junto com o código. Não há mais dependência de armazenamento externo do Manus: o build gera um site estático.
 
-Há, porém, uma dependência de terceiro em tempo de execução: as fontes **Cormorant Garamond** e **Manrope** são carregadas do Google Fonts (`fonts.googleapis.com` e `fonts.gstatic.com`), o que transmite o IP de cada visitante ao Google. Auto-hospedar os arquivos de fonte em `client/public/assets/fonts/` eliminaria essa transferência e removeria a última chamada externa da renderização.
+A tipografia é **auto-hospedada**. As fontes **Cormorant Garamond** (títulos) e **Manrope** (texto) ficam em `client/public/assets/fonts/`, servidas pelo próprio domínio: a renderização não faz nenhuma chamada externa e o IP dos visitantes não é transmitido a terceiros — coerente com a apresentação de conformidade com a LGPD.
+
+São fontes **variáveis**: um arquivo por subconjunto cobre toda a faixa de pesos (Manrope 200–800, Cormorant Garamond 300–700), em vez de um arquivo por peso. Só os subconjuntos latinos são versionados; os `unicode-range` das declarações `@font-face` em `client/src/index.css` garantem que o navegador baixe apenas o necessário. Os arquivos vêm dos pacotes npm `@fontsource-variable/manrope` e `@fontsource-variable/cormorant-garamond`; para atualizá-los, instale os pacotes, copie os `.woff2` latinos de `node_modules/@fontsource-variable/*/files/` e remova os pacotes novamente.
 
 ## Continuidade e backup
 

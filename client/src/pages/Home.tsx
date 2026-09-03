@@ -77,9 +77,9 @@ const whatsappMessage = encodeURIComponent(
 );
 const whatsappUrl = `https://wa.me/5511964189875?text=${whatsappMessage}`;
 const officeAddress =
-  "Rua Henrique Sóter Fernandes, 47, sala 21, Itapecerica de Serra - SP, 06850-710";
+  "Rua Henrique Sóter Fernandes, 47, sala 21, Itapecerica da Serra - SP, 06850-710";
 const mapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=Rua+Henrique+S%C3%B3ter+Fernandes%2C+47%2C+sala+21%2C+Itapecerica+de+Serra+-+SP%2C+06850-710";
+  "https://www.google.com/maps/search/?api=1&query=Rua+Henrique+S%C3%B3ter+Fernandes%2C+47%2C+sala+21%2C+Itapecerica+da+Serra+-+SP%2C+06850-710";
 
 function WhatsAppLink({
   children,

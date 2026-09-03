@@ -11,3 +11,15 @@ O monograma `AS_LogoSignPNG.webp` será empregado como favicon e detalhe institu
 As imagens enviadas incluem objetos 3D ligados a compliance, análise de CNPJ e documentos; uma fachada institucional; uma cena de empresário; uma interface digital; e o retrato profissional de Cintia Alves Soares. Elas serão usadas como suporte visual, nunca como prova de um caso, cliente, sede, serviço específico, resultado ou tecnologia do escritório.
 
 As imagens institucionais sem texto geradas para o projeto serão aplicadas em áreas de destaque. O hero usará composição escura com área de texto de alto contraste; a imagem de objetos jurídicos será empregada como contexto de serviços; e a textura de mármore será limitada a planos de fundo decorativos com sobreposição sólida para manter legibilidade.
+
+## Tipografia
+
+Os arquivos de fonte ficam em `client/public/assets/fonts/`, versionados junto com o código e servidos pelo próprio domínio — não há requisição ao Google Fonts.
+
+| Arquivo | Família | Uso |
+|---|---|---|
+| `manrope-latin.woff2`, `manrope-latin-ext.woff2` | Manrope (variável, 200–800) | Corpo de texto, navegação, rótulos |
+| `cormorant-garamond-latin.woff2`, `cormorant-garamond-latin-ext.woff2` | Cormorant Garamond (variável, 300–700) | Títulos e destaques |
+| `cormorant-garamond-latin-italic.woff2`, `cormorant-garamond-latin-ext-italic.woff2` | Cormorant Garamond itálico | Ênfases em `<em>` dentro dos títulos |
+
+As declarações `@font-face` estão no topo de `client/src/index.css`. A página `client/public/404.html` é estática e declara a própria `@font-face` do Manrope.
