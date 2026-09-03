@@ -1,33 +1,20 @@
 /**
  * Design note — Pórtico de Confiança: composição institucional escura, ritmo editorial
  * e navegação discreta para orientar uma página de advocacia sem excessos promocionais.
+ *
+ * O site é uma página única. URLs inexistentes são tratadas pela Netlify com
+ * `client/public/404.html`, que devolve HTTP 404 real — por isso não há roteador
+ * de cliente nem página NotFound em React.
  */
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/404" component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
 
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <Home />
       </ThemeProvider>
     </ErrorBoundary>
   );

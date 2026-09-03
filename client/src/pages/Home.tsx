@@ -77,9 +77,9 @@ const whatsappMessage = encodeURIComponent(
 );
 const whatsappUrl = `https://wa.me/5511964189875?text=${whatsappMessage}`;
 const officeAddress =
-  "Rua Henrique Sóter Fernandes, 47, sala 21, Itapecerica de Serra - SP, 06850-710";
+  "Rua Henrique Sóter Fernandes, 47, sala 21, Itapecerica da Serra - SP, 06850-710";
 const mapsUrl =
-  "https://www.google.com/maps/search/?api=1&query=Rua+Henrique+S%C3%B3ter+Fernandes%2C+47%2C+sala+21%2C+Itapecerica+de+Serra+-+SP%2C+06850-710";
+  "https://www.google.com/maps/search/?api=1&query=Rua+Henrique+S%C3%B3ter+Fernandes%2C+47%2C+sala+21%2C+Itapecerica+da+Serra+-+SP%2C+06850-710";
 
 function WhatsAppLink({
   children,
@@ -138,7 +138,7 @@ export default function Home() {
       <header className={`topbar ${scrolled ? "topbar--scrolled" : ""}`}>
         <div className="topbar__inner page-shell">
           <a href="#inicio" className="brand" aria-label="Alcântaro Soares Advocacia — início">
-            <img src={assets.logoOnDark} alt="Alcântaro Soares Advocacia" />
+            <img src={assets.logoOnDark} alt="Alcântaro Soares Advocacia" width={2400} height={795} decoding="async" fetchPriority="high" />
           </a>
           <nav className="desktop-nav" aria-label="Navegação principal">
             {navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
@@ -280,8 +280,8 @@ export default function Home() {
         <section className="founder" id="fundadora" aria-labelledby="founder-title">
           <div className="page-shell founder__inner">
             <div className="founder__card" data-reveal="media">
-              <div className="founder__portrait"><img src={assets.portrait} alt="Retrato profissional de Cintia Alves Soares" /></div>
-              <div className="founder__card-meta"><img src={assets.mark} alt="" /><span>Alcântaro Soares</span></div>
+              <div className="founder__portrait"><img src={assets.portrait} alt="Retrato profissional de Cintia Alves Soares" width={1536} height={2048} loading="lazy" decoding="async" /></div>
+              <div className="founder__card-meta"><img src={assets.mark} alt="" width={1583} height={2048} loading="lazy" decoding="async" /><span>Alcântaro Soares</span></div>
             </div>
             <div className="founder__copy">
               <div className="section-bar" data-reveal style={{ transitionDelay: "20ms" }}><span>05 · Fundadora</span></div>
@@ -317,7 +317,7 @@ export default function Home() {
       <footer className="footer">
         <div className="page-shell footer__inner">
           <div className="footer__top">
-            <img className="footer__logo" src={assets.logoOnDark} alt="Alcântaro Soares Advocacia" />
+            <img className="footer__logo" src={assets.logoOnDark} alt="Alcântaro Soares Advocacia" width={2400} height={795} loading="lazy" decoding="async" />
             <nav aria-label="Navegação do rodapé">{navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</nav>
             <div className="footer__socials">
               <a href="https://www.instagram.com/alcantaro.soares.advocacia/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={17} /></a>

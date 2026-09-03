@@ -1,1 +1,3 @@
-/*  /index.html  200
+# O site é uma página única: não há rotas de cliente para reescrever.
+# URLs inexistentes devem devolver HTTP 404 real (a Netlify serve /404.html),
+# evitando que buscadores indexem endereços inválidos como soft 404.
