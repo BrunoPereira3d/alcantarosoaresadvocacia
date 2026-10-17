@@ -4,7 +4,7 @@ Esta nota registra somente informações públicas confirmadas em 31 de agosto d
 
 ## Informações confirmadas pelo usuário
 
-A Alcântaro Soares Advocacia é um escritório **full service**, com especialidade em **compliance trabalhista** e **prevenção de passivos trabalhistas**. A fundadora é **Cintia Alves Soares**, apresentada como fundadora e CEO. O número de WhatsApp autorizado é **+55 11 96418-9875** e o e-mail autorizado é **contat@alcantarosoaresadv.com.br**.
+A Alcântaro Soares Advocacia é um escritório **full service**, com especialidade em **compliance trabalhista** e **prevenção de passivos trabalhistas**. A fundadora é **Cintia Alves Soares**, apresentada como fundadora e CEO. O número de WhatsApp autorizado é **+55 11 96418-9875** e o e-mail autorizado é **contato@alcantarosoaresadv.com.br**. O registro anterior desta nota trazia `contat@`, sem o "o"; o usuário corrigiu o endereço em 17 de outubro de 2026 e a grafia correta foi aplicada à página e ao Schema.org.
 
 ## Informações confirmadas em perfis oficiais
 

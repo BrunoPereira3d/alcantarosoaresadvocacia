@@ -304,7 +304,7 @@ export default function Home() {
             </div>
             <div className="contact__actions" data-reveal>
               <WhatsAppLink className="button button--sand"><MessageCircle size={18} /> Iniciar conversa <ArrowUpRight size={17} /></WhatsAppLink>
-              <a href="mailto:contat@alcantarosoaresadv.com.br" className="contact__email"><Mail size={17} /> contat@alcantarosoaresadv.com.br</a>
+              <a href="mailto:contato@alcantarosoaresadv.com.br" className="contact__email"><Mail size={17} /> contato@alcantarosoaresadv.com.br</a>
             </div>
           </div>
         </section>
